@@ -46,6 +46,16 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.15.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+            <version>2.15.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -85,6 +95,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+            <!-- mvn package appassembler:assemble-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
@@ -101,8 +112,8 @@
                     <extraJvmArguments>-Xmn128M -Xmx1024M -Xms1024M -XX:MaxMetaspaceSize=128M -XX:MetaspaceSize=128M -Duse.local.proxy=false -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC -XX:CMSFullGCsBeforeCompaction=50 -XX:+UseCMSCompactAtFullCollection -XX:MaxTenuringThreshold=15 -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintFlagsFinal -Dcom.sun.management.jmxremote </extraJvmArguments>
                     <programs>
                         <program>
-                            <mainClass>com.xiaomi.mifi.oversea.app.AppMain</mainClass>
-                            <name>decrypt-experian.sh</name>
+                            <mainClass>cn.lxr.example.tencentcloudapi.TencentCloudApiApplication</mainClass>
+                            <name>tencent.sh</name>
                         </program>
                     </programs>
                     <repositoryLayout>flat</repositoryLayout>
